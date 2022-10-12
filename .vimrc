@@ -1,23 +1,17 @@
-" Vundle
-" -----
 set nocompatible
 filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'jparise/vim-graphql'
+Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'othree/yajs.vim'
-Plugin 'othree/es.next.syntax.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'tomlion/vim-solidity'
-Plugin 'derekwyatt/vim-scala'
-
-" All of your Plugins must be added before the following line
-call vundle#end()
 filetype plugin indent on
+let g:coc_global_extensions = ['coc-tsserver']
 
 " General
 " ------
@@ -43,6 +37,7 @@ set number
 set nowrap
 set scrolloff=999
 set expandtab
+set background=dark
 map <PageUp> 20k
 map <PageDown> 20j
 vnoremap . :norm.<CR>
@@ -52,11 +47,11 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 noremap <Space> :
 
-colorscheme wombat
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 au BufNewFile,BufRead *.less set filetype=less
 au BufNewFile,BufRead *.styl set filetype=stylus
 au BufNewFile,BufRead *.ts set filetype=typescript
-au BufNewFile,BufRead *.sol set filetype=solidity
 
 filetype plugin indent on
 syntax on
